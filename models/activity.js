@@ -1,7 +1,7 @@
-const { Model, DataTypes } = require('sequilize');
-const sequilize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-class Project extends Model { }
+class Project extends Model {}
 
 Project.init(
     {
@@ -30,7 +30,15 @@ Project.init(
                 model: 'user',
                 key: 'id'
             }
-        }
-
+        },
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscore: true,
+        modelName: 'project'
     }
-)
+);
+
+module.exports = Project;
