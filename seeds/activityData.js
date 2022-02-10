@@ -2,7 +2,7 @@ const { Activity } = require("../models");
 
 const activityData = [
   {
-    title: " 2 mile walk around the park",
+    title: "2 mile walk around the park",
     description: "Morning walk around the park, bring your dogs!",
     date_created: "March 30, 2018",
     location: "John D. Morgan Park",
