@@ -1,0 +1,13 @@
+<!-- Loop over each object in the projects array -->
+{{#each activities as |activity| }}
+<div class="row mb-4 activity">
+  <div class="col-md-6">
+    <!-- Render the activity-->
+    <h2>
+      {{activity.title}}
+    </h2>
+    <a href="/activity/{{activity.id}}">{{activity.image}}</a>
+    <p>Location: {{activity.location}}</p>
+  </div>
+</div>
+{{/each}}
