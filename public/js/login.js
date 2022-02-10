@@ -1,13 +1,13 @@
-const loginHandler = async (e) => {
+const loginFormHandler = async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("").value.trim();
-  const password = document.getElementById("").value.trim();
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
 
   //user has entered both fields
   if (email && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("/", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
@@ -23,12 +23,12 @@ const loginHandler = async (e) => {
   }
 };
 
-const signupHandler = async (event) => {
+const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.getElementById("").value.trim();
-  const email = document.getElementById("").value.trim();
-  const password = document.getElementById("").value.trim();
+  const name = document.getElementById("signupName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim();
+  const password = document.getElementById("signupPassword").value.trim();
 
   if (name && email && password) {
     const response = await fetch("/api/users", {
@@ -45,6 +45,10 @@ const signupHandler = async (event) => {
   }
 };
 
-document.getElementById("loginForm").addEventListener("submit", loginHandler);
+document
+  .getElementById("login-form")
+  .addEventListener("submit", loginFormHandler);
 
-document.getElementById("signUpForm").addEventListener("submit", signupHandler);
+document
+  .getElementById("signup-form")
+  .addEventListener("submit", signupFormHandler);
