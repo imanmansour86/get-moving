@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.get('/', (res, req) => {
+router.get('/login', (res, req) => {
     if(req.session.logged_in) {
         console.log('logged in');
     }
