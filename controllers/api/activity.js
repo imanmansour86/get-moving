@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Activity } = require('../../models')
 
 //get all activities
 router.get('/', async (req, res) => {
@@ -13,7 +14,11 @@ router.get('/', async (req, res) => {
 //add activity 
 router.post('/', async (req, res) => {
     try {
-        console.log('post an activity');
+        const newActivity = await Activity.create({
+            ...req.body,
+            user_id: req.session.user_id
+        });
+        res.status(200).json(newActivity);
     } catch (err) {
         res.status(500).json(err);
         console.log(err);
