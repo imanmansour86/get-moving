@@ -9,7 +9,7 @@ router.get('/:id', async(req, res) => {
     }
 });
 
-router.get('', async(req, res) => {
+router.get('/', async(req, res) => {
     try {
         console.log('display current user page')
     } catch (err) {
