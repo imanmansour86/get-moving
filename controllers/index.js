@@ -6,4 +6,4 @@ const activityRoutes = require('./activity');
 router.use('/users', usersRoutes);
 router.use('/activity', activityRoutes);
 
-module.exports = router
+module.exports = router;
