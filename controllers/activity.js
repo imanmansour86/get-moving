@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
         console.log(err)
     }
-})
+});
 
 //add activity 
 router.post('/', async (req, res) => {
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
         console.log(err)
     }
-})
+});
 
 //view one activity
 router.get('/:id', async (req, res) => {
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
         res.status(500).json(err);
         console.log(err)
     }
-})
+});
 
 
 module.exports = router;
