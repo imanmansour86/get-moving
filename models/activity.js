@@ -26,7 +26,7 @@ Activity.init(
       type: DataTypes.DATE,
       get() {
         const date = new Date();
-        return `${date.toLocaleDateString([], {month: 'long', day: '2-digit', year: 'numeric'})}`
+        return `${date.toLocaleDateString([], {month: 'long', day: '2-digit', year: 'numeric', hour: 'numeric', minute: 'numeric'})}`
       }
     },
     image: {
