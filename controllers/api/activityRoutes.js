@@ -5,11 +5,24 @@ const withAuth = require('../../utils/auth');
 //get all activities
 router.get('/', async (req, res) => {
     try {
-        console.log('get all activities');
-    } catch (err) {
+        const activityData = await Activity.findAll({
+          include: [
+            {
+              model: User,
+              attributes: ['name'],
+            },
+          ],
+        });
+    
+        const activity = activityData.get({ plain: true });
+    
+        res.render('activity', {
+          ...activity,
+          logged_in: req.session.logged_in
+        });
+      } catch (err) {
         res.status(500).json(err);
-        console.log(err);
-    }
+      }
 });
 
 //add activity 
