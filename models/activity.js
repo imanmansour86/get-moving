@@ -21,7 +21,7 @@ Activity.init(
     location: {
       type: DataTypes.STRING,
     },
-    date_created: {
+    activity_date: {
       type: DataTypes.DATE,
     },
     image: {
