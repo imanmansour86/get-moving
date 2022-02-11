@@ -19,6 +19,8 @@ router.get("/", async (req, res) => {
       activity.get({ plain: true })
     );
 
+    console.log("check activites", activities);
+
     // Pass serialized data and session flag into template
     res.render("homepage", {
       activities,

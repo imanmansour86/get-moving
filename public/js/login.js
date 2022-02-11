@@ -30,6 +30,7 @@ const signupFormHandler = async (event) => {
   const email = document.getElementById("signupEmail").value.trim();
   const password = document.getElementById("signupPassword").value.trim();
 
+  console.log("signup", name, email, password);
   if (name && email && password) {
     const response = await fetch("/api/users", {
       method: "POST",
@@ -46,9 +47,9 @@ const signupFormHandler = async (event) => {
 };
 
 document
-  .getElementById("login-form")
-  .addEventListener("submit", loginFormHandler);
-
-document
   .getElementById("signup-form")
   .addEventListener("submit", signupFormHandler);
+
+document
+  .getElementById("login-form")
+  .addEventListener("submit", loginFormHandler);
