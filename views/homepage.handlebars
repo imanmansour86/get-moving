@@ -1,19 +1,20 @@
-
 <!-- Loop over each object in the projects array -->
 {{#each activities as |activity|}}
-<div class="card col-4">
-  <img href="/activity/{{activity.id}}">{{activity.image}}" class="card-img-top" alt="activity image">
-  <div class="card-body">
-    <h5 class="card-title"> {{activity.title}}</h5>
-    <p class="card-text">Description: {{activity.description}} </p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Location: {{activity.location}}</li>
-    <li class="list-group-item">Date: {{activity.event_date}} </li>
-  </ul>
-  {{!-- <div class="card-body">
+  <div class="card col-4">
+    <img href="/activity/{{activity.id}}" />{{activity.image}}"
+    class="card-img-top" alt="activity image">
+    <div class="card-body">
+      <h5 class="card-title"> {{activity.title}}</h5>
+      <p class="card-text">Description: {{activity.description}} </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Location: {{activity.location}}</li>
+      <li class="list-group-item">Date: {{activity.activity_date}} </li>
+    </ul>
+
+    {{! <div class="card-body">
     <a href="#" class="card-link">Card link</a>
     <a href="#" class="card-link">Another link</a>
-  </div> --}}
-</div>
+  </div> }}
+  </div>
 {{/each}}
