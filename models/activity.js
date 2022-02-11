@@ -1,7 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const User = require('./user')
 
-class Activity extends Model {}
+class Activity extends Model { }
 
 Activity.init(
   {
@@ -23,6 +24,10 @@ Activity.init(
     },
     activity_date: {
       type: DataTypes.DATE,
+      get() {
+        const date = new Date();
+        return `${date.toLocaleDateString([], {month: 'long', day: '2-digit', year: 'numeric'})}`
+      }
     },
     image: {
       type: DataTypes.STRING,
@@ -30,7 +35,7 @@ Activity.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
+        model: User,
         key: "id",
       },
     },
