@@ -5,9 +5,9 @@ const newActivityHandler = async (event) => {
   const title = document.getElementById("title").value.trim();
   const description = document.getElementById("description").value.trim();
   const location = document.getElementById("location").value.trim();
-  const imageURL = document.getElementById("imageURL").value.trim();
+  const image = document.getElementById("imageURL").value.trim();
 
-  if (title && description && location && imageURL) {
+  if (title && description && location && image) {
     const response = await fetch(`/api/activity`, {
       method: "POST",
       body: JSON.stringify({ title, description, location, imageURL }),
@@ -17,6 +17,7 @@ const newActivityHandler = async (event) => {
     });
 
     if (response.ok) {
+      console.log("test");
       document.location.replace("/activity");
     } else {
       alert("Failed to create new activity");
