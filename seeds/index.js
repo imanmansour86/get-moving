@@ -6,13 +6,11 @@ const seedAttendance = require("./attendanceData");
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-   await seedActivity();
-  
   await seedUser();
 
+  await seedActivity();
 
   await seedAttendance();
-
 
   process.exit(0);
 };
