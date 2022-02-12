@@ -74,14 +74,15 @@ router.get("/activity", withAuth, async (req, res) => {
       },
       attributes: { exclude: ["password"] },
 
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ["name"],
+      //   },
+      // ],
     });
 
+    console.log("user id", req.session.user_id);
     // Serialize data so the template can read it
     const activities = activityData.map((activity) =>
       activity.get({ plain: true })
@@ -90,7 +91,7 @@ router.get("/activity", withAuth, async (req, res) => {
     const userData = await User.findOne({ where: { id: req.session.user_id } });
     const user = userData.get({ plain: true });
 
-    console.log(" activites by logged in user", activities);
+    console.log(" activites by logged in user", user);
 
     res.render("activity", {
       activities,
