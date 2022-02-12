@@ -1,6 +1,7 @@
 const router = require("express").Router();
-const { Activity, User } = require("../models");
+const { Activity, User, Attendance } = require("../models");
 const withAuth = require("../utils/auth");
+const { Op } = require("sequelize");
 
 // GET all activities
 router.get("/", async (req, res) => {
@@ -42,12 +43,13 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+//get single user by logged in id
 router.get("/profile", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Project }],
+      include: [{ model: Activity }, { model: Attendance }],
     });
 
     const user = userData.get({ plain: true });
@@ -57,6 +59,47 @@ router.get("/profile", withAuth, async (req, res) => {
       logged_in: true,
     });
   } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//get activity by username
+router.get("/activity", withAuth, async (req, res) => {
+  try {
+    const activityData = await Activity.findAll({
+      where: {
+        user_id: {
+          [Op.eq]: req.session.user_id,
+        },
+      },
+      attributes: { exclude: ["password"] },
+
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ["name"],
+      //   },
+      // ],
+    });
+
+    console.log("user id", req.session.user_id);
+    // Serialize data so the template can read it
+    const activities = activityData.map((activity) =>
+      activity.get({ plain: true })
+    );
+
+    const userData = await User.findOne({ where: { id: req.session.user_id } });
+    const user = userData.get({ plain: true });
+
+    console.log(" activites by logged in user", user);
+
+    res.render("activity", {
+      activities,
+      user,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
