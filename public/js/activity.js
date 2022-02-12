@@ -25,6 +25,26 @@ const newActivityHandler = async (event) => {
   }
 };
 
+//delete an activity
+const delButtonHandler = async (event) => {
+  console.log("test delete", event.target);
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
+
+    const response = await fetch(`/api/activity/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      document.location.replace("/activity");
+    } else {
+      alert("Failed to delete activity");
+    }
+  }
+};
+
 document
   .getElementById("new-activity")
   .addEventListener("submit", newActivityHandler);
+
+document.getElementById("delete").addEventListener("click", delButtonHandler);
