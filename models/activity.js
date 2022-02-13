@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const User = require('./user')
+const User = require("./user");
 
-class Activity extends Model { }
+class Activity extends Model {}
 
 Activity.init(
   {
@@ -26,23 +26,29 @@ Activity.init(
       type: DataTypes.DATE,
       get() {
         const date = new Date();
-        return `${date.toLocaleDateString([], {month: 'long', day: '2-digit', year: 'numeric', hour: 'numeric', minute: 'numeric'})}`
-      }
+        return `${date.toLocaleDateString([], {
+          month: "long",
+          day: "2-digit",
+          year: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        })}`;
+      },
     },
     time: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image: {
       type: DataTypes.STRING,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: User,
-        key: "id",
-      },
-    },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: User,
+    //     key: "id",
+    //   },
+    // },
   },
   {
     sequelize,
