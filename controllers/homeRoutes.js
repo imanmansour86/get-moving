@@ -10,17 +10,24 @@ router.get("/", async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["name"],
+          through: Attendance,
+          as: "activity_attendances",
         },
       ],
     });
 
+    // const dBattendanceData = await Attendance.findAll({});
+
+    // console.log("check attendance name", dBattendanceData);
     // Serialize data so the template can read it
     const activities = dBActivityData.map((activity) =>
       activity.get({ plain: true })
     );
 
-    console.log("check activites", activities);
+    console.log(
+      "check activites",
+      JSON.stringify(activities[0].activity_attendances)
+    );
 
     // Pass serialized data and session flag into template
     res.render("homepage", {

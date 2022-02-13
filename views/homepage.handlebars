@@ -1,19 +1,29 @@
 <h1>Upcoming Activities</h1>
 
 <div class="row">
-<!-- Loop over each object in the projects array -->
-{{#each activities as |activity|}}
-  <div class="card column col-3 m-2 p-1">
-    <img href="/activity/{{activity.id}}" />{{activity.image}}"
-    class="card-img-top" alt="activity image">3
-    <div class="card-body">
-      <h3 class="card-title"> {{activity.title}}</h3>
-      <p class="card-text">Description: {{activity.description}} </p>
+  <!-- Loop over each object in the projects array -->
+  {{#each activities as |activity|}}
+    <div class="card column col-3 m-2 p-1">
+      <img href="/activity/{{activity.id}}" />{{activity.image}}"
+      class="card-img-top" alt="activity image">3
+      <div class="card-body">
+        <h3 class="card-title"> {{activity.title}}</h3>
+        <p class="card-text">Description: {{activity.description}} </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Location: {{activity.location}}</li>
+        <li class="list-group-item">When:
+          {{activity.activity_date}},
+          {{activity.time}}
+        </li>
+        <li class="list-group-item">
+          People Coming:
+          {{#each activity.activity_attendances as |attendance|}}
+
+            {{attendance.name}}
+          {{/each}}
+        </li>
+      </ul>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Location: {{activity.location}}</li>
-      <li class="list-group-item">When: {{activity.activity_date}}, {{activity.time}} </li>
-    </ul>
-  </div>
-{{/each}}
+  {{/each}}
 </div>
