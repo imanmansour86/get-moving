@@ -7,7 +7,6 @@ const activityData = [
     activity_date: "March 30, 2018",
     location: "John D. Morgan Park",
     image: "Insert Image",
-    user_id: 1,
   },
   {
     title: "Hiking in the mountains",
@@ -15,7 +14,6 @@ const activityData = [
     activity_date: "November 30, 2018",
     location: "Morgan Hills Park",
     image: "Insert Image",
-    user_id: 2,
   },
 
   {
@@ -24,7 +22,6 @@ const activityData = [
     activity_date: "March 30, 2018",
     location: "Community club center",
     image: "Insert Image",
-    user_id: 3,
   },
   {
     title: "Yoga day",
@@ -32,7 +29,6 @@ const activityData = [
     activity_date: "March 30, 2018",
     location: "Santa Cruz beach",
     image: "Insert Image",
-    user_id: 3,
   },
 ];
 

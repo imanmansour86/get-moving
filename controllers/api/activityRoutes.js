@@ -1,6 +1,7 @@
 const router = require("express").Router();
-const { Activity, User } = require("../../models");
+const { Activity, User, Attendance } = require("../../models");
 const withAuth = require("../../utils/auth");
+const { Op } = require("sequelize");
 
 //get all activities
 router.get("/", async (req, res) => {
@@ -68,9 +69,10 @@ router.delete("/:id", withAuth, async (req, res) => {
     const activityData = await Activity.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
+
+    console.log("test delete", req.session.user_id);
 
     if (!activityData) {
       res.status(404).json({ message: "No activity found with this id!" });
@@ -79,6 +81,7 @@ router.delete("/:id", withAuth, async (req, res) => {
 
     res.status(200).json(activityData);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
