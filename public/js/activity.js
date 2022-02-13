@@ -48,4 +48,9 @@ document
   .getElementById("new-activity")
   .addEventListener("submit", newActivityHandler);
 
-document.getElementById("delete").addEventListener("click", delButtonHandler);
+//only call delete when the button exists
+const deletebtn = document.getElementById("delete");
+
+if (deletebtn) {
+  deletebtn.addEventListener("click", delButtonHandler);
+}
