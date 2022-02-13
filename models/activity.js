@@ -25,7 +25,7 @@ Activity.init(
     activity_date: {
       type: DataTypes.DATE,
       get() {
-        const date = new Date();
+        date = this.getDataValue('activity_date');
         return `${date.toLocaleDateString([], {
           month: "long",
           day: "2-digit",
