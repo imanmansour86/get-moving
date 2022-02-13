@@ -21,9 +21,15 @@
           People Coming:
           {{#each activity.activity_attendances as |attendance|}}
             -{{attendance.name}}{{/each}}
-                  <button class="btn btn-primary">Click to Attend</button>
+          <button
+            data-id={{activity.id}}
+            id="attend"
+            class="btn btn-primary"
+          >Click to Attend</button>
         </li>
       </ul>
     </div>
   {{/each}}
 </div>
+
+<script src="/js/attend.js"></script>

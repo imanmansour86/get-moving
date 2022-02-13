@@ -40,25 +40,22 @@ router.post("/", async (req, res) => {
   }
 });
 
-//view one activity
-router.get("/:id", async (req, res) => {
+//add a new attendace
+router.post("/:id", withAuth, async (req, res) => {
   try {
-    const activityData = await Activity.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
+    const attendanceData = await Attendance.create({
+      activity_id: req.params.id,
+      user_id: req.session.user_id,
     });
+    console.log("attendance data", attendanceData);
 
-    const activity = activityData.get({ plain: true });
-
-    res.render("activity", {
-      ...activity,
-      logged_in: req.session.logged_in,
-    });
+    if (!attendanceData) {
+      res.status(404).json({ message: "No attendance found" });
+      return;
+    }
+    res.status(200).json(attendanceData);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
