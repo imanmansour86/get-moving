@@ -11,13 +11,21 @@ const attendlButtonHandler = async (event) => {
 
     if (response.ok) {
       console.log("response in js ok");
-      document.location.replace("/homepage");
+      document.location.replace("/");
     } else {
       alert("Failed to add attendance");
     }
   }
 };
 
-document
-  .getElementById("attend")
-  .addEventListener("click", attendlButtonHandler);
+var elements = document.querySelectorAll(".attend");
+console.log("all delete buttons", elements);
+// buttons.addEventListener("click", attendlButtonHandler);
+
+// document
+//   .getElementById("attend")
+//   .addEventListener("click", attendlButtonHandler);
+
+Array.from(elements).forEach(function (element) {
+  element.addEventListener("click", attendlButtonHandler);
+});
