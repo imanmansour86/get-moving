@@ -4,8 +4,7 @@
   <!-- Loop over each object in the projects array -->
   {{#each activities as |activity|}}
     <div class="card column col-3 m-2 p-1">
-      <img href="/activity/{{activity.id}}" />{{activity.image}}"
-      class="card-img-top" alt="activity image">3
+      <img src="{{activity.image}}" class="card-img-top" alt="activity image"/>
       <div class="card-body">
         <a href="/activity/{{activity.id}}">
           <h3 class="card-title"> {{activity.title}}</h3>
