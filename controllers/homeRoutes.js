@@ -41,7 +41,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-//get single user by logged in id
+//get activity by id
 router.get("/activity/:id", withAuth, async (req, res) => {
   try {
     const dBActivityData = await Activity.findByPk(req.params.id, {
@@ -56,17 +56,15 @@ router.get("/activity/:id", withAuth, async (req, res) => {
       ],
     });
 
-    console.log("test single activity", activityData);
-
-    const activities = dBActivityData.get({ plain: true });
-
+    const activity = dBActivityData.get({ plain: true });
     console.log("test single activity", activity);
 
     res.render("singleactivity", {
-      // activities,
+      activity,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
