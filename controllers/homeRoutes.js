@@ -16,17 +16,8 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    // const dBattendanceData = await Attendance.findAll({});
-
-    // console.log("check attendance name", dBattendanceData);
-    // Serialize data so the template can read it
     const activities = dBActivityData.map((activity) =>
       activity.get({ plain: true })
-    );
-
-    console.log(
-      "check activites",
-      JSON.stringify(activities[0].activity_attendances)
     );
 
     // Pass serialized data and session flag into template
@@ -74,19 +65,22 @@ router.get("/profile", withAuth, async (req, res) => {
 router.get("/activity", withAuth, async (req, res) => {
   try {
     const activityData = await Activity.findAll({
-      where: {
-        user_id: {
-          [Op.eq]: req.session.user_id,
-        },
-      },
       attributes: { exclude: ["password"] },
 
-      // include: [
-      //   {
-      //     model: User,
-      //     attributes: ["name"],
-      //   },
-      // ],
+      include: [
+        {
+          model: User,
+          through: {
+            Attendance,
+            where: {
+              user_id: {
+                [Op.eq]: req.session.user_id,
+              },
+            },
+          },
+          as: "activity_attendances",
+        },
+      ],
     });
 
     console.log("user id", req.session.user_id);
