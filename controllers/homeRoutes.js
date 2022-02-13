@@ -57,7 +57,7 @@ router.get("/activity/:id", withAuth, async (req, res) => {
     });
 
     const activity = dBActivityData.get({ plain: true });
-    console.log("test single activity", activity);
+    console.log("test single activity", activity.activity_attendances.name);
 
     res.render("singleactivity", {
       activity,

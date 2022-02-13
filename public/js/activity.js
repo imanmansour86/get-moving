@@ -31,7 +31,6 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
 
-    console.log("id to delete delete", id);
     const response = await fetch(`/api/activity/${id}`, {
       method: "DELETE",
     });
