@@ -7,7 +7,10 @@
       <img href="/activity/{{activity.id}}" />{{activity.image}}"
       class="card-img-top" alt="activity image">3
       <div class="card-body">
-        <h3 class="card-title"> {{activity.title}}</h3>
+        <a href="/activity/{{activity.id}}">
+          <h3 class="card-title"> {{activity.title}}</h3>
+        </a>
+
         <p class="card-text">Description: {{activity.description}} </p>
       </div>
       <ul class="list-group list-group-flush">
