@@ -44,18 +44,12 @@ router.get("/login", (req, res) => {
 //get single user by logged in id
 router.get("/activity/:id", withAuth, async (req, res) => {
   try {
-    console.log("route by id");
     const dBActivityData = await Activity.findByPk(req.params.id, {
       include: [
         {
           model: User,
           through: {
             Attendance,
-            where: {
-              user_id: {
-                [Op.eq]: req.session.user_id,
-              },
-            },
           },
           as: "activity_attendances",
         },
@@ -69,7 +63,7 @@ router.get("/activity/:id", withAuth, async (req, res) => {
     console.log("test single activity", activity);
 
     res.render("singleactivity", {
-      activities,
+      // activities,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
