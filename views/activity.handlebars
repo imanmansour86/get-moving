@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{user.name}}!</h2>
+    <h2>Welcome, {{user.name}}!</h2><br>
   </div>
 </div>
 <div class="row">
@@ -29,21 +29,25 @@
       <h2>Add an Activity/Event</h2>
       <form class="form activity" id="new-activity">
         <div class="form-activity">
-          <label for="title">Title</label>
-          <input class="form-input" type="text" id="title" />
+          <label for="title">Activity Title</label>
+          <input class="form-control" type="text" id="title" />
+        </div>
+        <div class="form-activity">
+          <label for="date">Date and Time</label>
+          <input class="form-control" type="text" id="title" />
         </div>
         <div class="form-activity">
           <label for="description">Description:</label>
-          <input class="form-input" type="text" id="description" />
+          <input class="form-control" type="text" id="description" />
         </div>
         <div class="form-activity">
           <label for="location">Location</label>
-          <input class="form-input" type="text" id="location" />
+          <input class="form-control" type="text" id="location" />
         </div>
         <div class="form-activity">
           <label for="imageURL">ImageURL</label>
-          <input class="form-input" type="text" id="imageURL" />
-        </div>
+          <input class="form-control" type="text" id="imageURL" />
+        </div><br>
         <div class="form-activity">
           <button class="btn btn-primary" type="submit">Submit</button>
         </div>
