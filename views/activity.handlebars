@@ -1,55 +1,57 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{user.name}}!</h2>
+    <h2>Welcome, {{user.name}}!</h2><br>
   </div>
 </div>
 <div class="row">
-  <div class="column">
-    {{#if activities.length}}
-      <div class="col-md-6 activity-list">
-        <h3>Upcoming Activities:</h3>
+    <div class="column col-6">
+      {{#if activities.length}}
+        <div class="activity-list">
+          <h3>Upcoming Activities:</h3>
 
-        {{#each activities as |activity|}}
+          {{#each activities as |activity|}}
 
-          <h4><a href="/activity/{{activity.id}}">{{activity.title}}</a></h4>
-          <h5> {{activity.activity_date}} </h5>
-          <p> {{activity.description}} </p>
-          <p> {{activity.location}} </p>
-          <button
-            id="delete"
-            class="btn btn-sm btn-danger"
-            data-id="{{activity.id}}"
-          >DELETE</button>
-        {{/each}}
-      </div>
-    {{/if}}
-  </div>
-  <div class="column">
-    <div class="col-md-6">
-      <h2>Add an Activity/Event</h2>
-      <form class="form activity" id="new-activity">
-        <div class="form-activity">
-          <label for="title">Title</label>
-          <input class="form-input" type="text" id="title" />
+            <h4><a href="/activity/{{activity.id}}">{{activity.title}}</a></h4>
+            <h5> {{activity.activity_date}} </h5>
+            <p> {{activity.description}} </p>
+            <p> {{activity.location}} </p>
+            <button
+              id="delete"
+              class="btn btn-sm btn-danger"
+              data-id="{{activity.id}}"
+            >DELETE</button>
+          {{/each}}
         </div>
-        <div class="form-activity">
-          <label for="description">Description:</label>
-          <input class="form-input" type="text" id="description" />
-        </div>
-        <div class="form-activity">
-          <label for="location">Location</label>
-          <input class="form-input" type="text" id="location" />
-        </div>
-        <div class="form-activity">
-          <label for="imageURL">ImageURL</label>
-          <input class="form-input" type="text" id="imageURL" />
-        </div>
-        <div class="form-activity">
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
+      {{/if}}
     </div>
-  </div>
+    <div class="column col-6">
+        <h3>Add an Activity/Event</h3>
+        <form class="form activity" id="new-activity">
+          <div class="form-activity">
+            <label for="title">Activity Title</label>
+            <input class="form-control" type="text" id="title" />
+          </div>
+          <div class="form-activity">
+            <label for="date">Date and Time</label>
+            <input class="form-control" type="text" id="title" />
+          </div>
+          <div class="form-activity">
+            <label for="description">Description:</label>
+            <input class="form-control" type="text" id="description" />
+          </div>
+          <div class="form-activity">
+            <label for="location">Location</label>
+            <input class="form-control" type="text" id="location" />
+          </div>
+          <div class="form-activity">
+            <label for="imageURL">ImageURL</label>
+            <input class="form-control" type="text" id="imageURL" />
+          </div><br>
+          <div class="form-activity">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+    </div>
 </div>
 
 <script src="/js/activity.js"></script>
