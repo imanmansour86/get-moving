@@ -31,7 +31,6 @@ router.post("/", async (req, res) => {
   try {
     const newActivity = await Activity.create({
       ...req.body,
-      activity_date: Date(),
       user_id: req.session.user_id,
     });
     res.status(200).json(newActivity);

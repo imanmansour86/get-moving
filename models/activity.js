@@ -25,19 +25,19 @@ Activity.init(
     activity_date: {
       type: DataTypes.DATE,
       get() {
-        const date = new Date();
-        return `${date.toLocaleDateString([], {
+        const dater = this.getDataValue('activity_date');
+        const dates = Date.parse(dater);
+        const date = new Date(dates);
+        console.dir(date);
+        return `${date.toLocaleString([], {
           month: "long",
-          day: "2-digit",
+          day: "numeric",
           year: "numeric",
           hour: "numeric",
           minute: "numeric",
+          hour12: true
         })}`;
       },
-    },
-    time: {
-      type: DataTypes.STRING,
-      allowNull: true,
     },
     image: {
       type: DataTypes.STRING,

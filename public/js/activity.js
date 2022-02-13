@@ -6,11 +6,13 @@ const newActivityHandler = async (event) => {
   const description = document.getElementById("description").value.trim();
   const location = document.getElementById("location").value.trim();
   const image = document.getElementById("imageURL").value.trim();
+  const activity_date = document.getElementById("date").value.trim();
 
+console.log(activity_date)
   if (title && description && location && image) {
     const response = await fetch(`/api/activity`, {
       method: "POST",
-      body: JSON.stringify({ title, description, location, imageURL }),
+      body: JSON.stringify({ title, description, location, activity_date, imageURL }),
       headers: {
         "Content-Type": "application/json",
       },
