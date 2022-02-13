@@ -31,7 +31,7 @@ Activity.init(
         console.dir(date);
         return `${date.toLocaleString([], {
           month: "long",
-          day: "2-digit",
+          day: "numeric",
           year: "numeric",
           hour: "numeric",
           minute: "numeric",
