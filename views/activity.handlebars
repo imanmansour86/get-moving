@@ -12,7 +12,7 @@
           {{#each activities as |activity|}}
 
             <h4><a href="/activity/{{activity.id}}">{{activity.title}}</a></h4>
-            <h5> {{activity.activity_date}} </h5>
+            <h5> {{activity.activity_date}}, {{activity.time}} </h5>
             <p> {{activity.description}} </p>
             <p> {{activity.location}} </p>
             <button
@@ -32,8 +32,12 @@
             <input class="form-control" type="text" id="title" />
           </div>
           <div class="form-activity">
-            <label for="date">Date and Time</label>
-            <input class="form-control" type="text" id="title" />
+            <label for="date">Date</label>
+            <input class="form-control" type="text" id="date" />
+          </div>
+          <div class="form-activity">
+            <label for="time">Time</label>
+            <input class="form-control" type="text" id="time" />
           </div>
           <div class="form-activity">
             <label for="description">Description:</label>

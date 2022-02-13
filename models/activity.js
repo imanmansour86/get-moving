@@ -29,6 +29,10 @@ Activity.init(
         return `${date.toLocaleDateString([], {month: 'long', day: '2-digit', year: 'numeric', hour: 'numeric', minute: 'numeric'})}`
       }
     },
+    time: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     image: {
       type: DataTypes.STRING,
     },

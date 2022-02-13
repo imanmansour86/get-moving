@@ -39,7 +39,7 @@
               <!-- Conditionally render login or logout links -->
               {{#if logged_in}}
 
-                <a class="nav-link" id="logout">Logout</a>
+                <button class="nav-link btn btn-link" id="logout">Logout</button>
               {{else}}
                 <a class="nav-link" href="/login">Login</a>
               {{/if}}
@@ -49,7 +49,7 @@
         </div>
       </div>
     </nav>
-    <main class="container container-fluid mt-5">
+    <main class="container mt-5">
       <!-- Render the pages inside layout -->
       {{{body}}}
     </main>
