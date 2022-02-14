@@ -7,6 +7,7 @@ const activityData = [
     activity_date: "March 30, 2018",
     location: "John D. Morgan Park",
     image: "https://cdn.mos.cms.futurecdn.net/ntFmJUZ8tw3ULD3tkBaAtf.jpg",
+    user_id: 1,
   },
   {
     title: "Hiking in the mountains",
@@ -14,6 +15,7 @@ const activityData = [
     activity_date: "November 30, 2018",
     location: "Morgan Hills Park",
     image: "https://cdn.mos.cms.futurecdn.net/ntFmJUZ8tw3ULD3tkBaAtf.jpg",
+    user_id: 1,
   },
 
   {
@@ -22,6 +24,7 @@ const activityData = [
     activity_date: "March 30, 2018",
     location: "Community club center",
     image: "https://cdn.mos.cms.futurecdn.net/ntFmJUZ8tw3ULD3tkBaAtf.jpg",
+    user_id: 2,
   },
   {
     title: "Yoga day",
@@ -29,6 +32,7 @@ const activityData = [
     activity_date: "March 30, 2018",
     location: "Santa Cruz beach",
     image: "https://cdn.mos.cms.futurecdn.net/ntFmJUZ8tw3ULD3tkBaAtf.jpg",
+    user_id: 3,
   },
 ];
 

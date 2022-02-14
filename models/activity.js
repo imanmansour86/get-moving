@@ -25,7 +25,7 @@ Activity.init(
     activity_date: {
       type: DataTypes.DATE,
       get() {
-        const dater = this.getDataValue('activity_date');
+        const dater = this.getDataValue("activity_date");
         const dates = Date.parse(dater);
         const date = new Date(dates);
         console.dir(date);
@@ -35,20 +35,20 @@ Activity.init(
           year: "numeric",
           hour: "numeric",
           minute: "numeric",
-          hour12: true
+          hour12: true,
         })}`;
       },
     },
     image: {
       type: DataTypes.STRING,
     },
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: User,
-    //     key: "id",
-    //   },
-    // },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: User,
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
