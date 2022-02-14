@@ -103,16 +103,14 @@ router.get("/activity", withAuth, async (req, res) => {
       ],
     });
 
-    console.log("user id", req.session.user_id);
     // Serialize data so the template can read it
     const activities = activityData.map((activity) =>
       activity.get({ plain: true })
     );
 
+    console.log("check activities for signed in user here", activities);
     const userData = await User.findOne({ where: { id: req.session.user_id } });
     const user = userData.get({ plain: true });
-
-    console.log(" activites by logged in user", user);
 
     res.render("activity", {
       activities,
