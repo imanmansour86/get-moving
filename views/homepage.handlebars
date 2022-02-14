@@ -3,8 +3,10 @@
 <div class="row">
   <!-- Loop over each object in the projects array -->
   {{#each activities as |activity|}}
-    <div class="card column col-10 col-md-5 col-lg-3 m-2 p-1">
-      {{!-- <img src="{{activity.image}}" class="card-img-top" alt="activity image"/> --}}
+
+    <div class="card column col-3 m-2 p-1">
+      <img href="/activity/{{activity.id}}" src="{{activity.image}}" class="card-img-top" alt="activity image"/>
+
       <div class="card-body">
         <a href="/activity/{{activity.id}}">
           <h3 class="card-title"> {{activity.title}}</h3>
@@ -15,17 +17,29 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Location: {{activity.location}}</li>
         <li class="list-group-item">When:
-          {{activity.activity_date}}
+          {{activity.activity_date}},
+          {{activity.time}}
         </li>
         <li class="list-group-item">
           People Coming:
           {{#each activity.activity_attendances as |attendance|}}
-            -{{attendance.name}}{{/each}}
-          <button
-            data-id={{activity.id}}
-            id={{activity.id}}
-            class="btn btn-primary attend"
-          >Click to Attend</button>
+            - {{attendance.name}}
+          {{/each}}
+          <br/>
+          <!-- Conditionally render sign in or click to attend btns, if user didn't attend the events and logged in: -->
+          {{#if activity.notAttended }} 
+            {{#if ../logged_in }}
+                <button
+                  data-id={{activity.id}}
+                  id={{activity.id}}
+                  class="btn btn-primary attend"
+                >Click to Attend</button>
+            {{else}}
+              <button type="button" class="btn btn-primary" disabled >Sign in to attend</button>
+            {{/if}}
+          {{else}}
+            <b>User already registred for this class</b>
+          {{/if}}
         </li>
       </ul>
     </div>
