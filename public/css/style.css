@@ -12,3 +12,8 @@ nav {
   margin: 5px;
   background-color: white;
 }
+
+.pickr-container {
+  text-align: center;
+  margin: 1cm;
+}
