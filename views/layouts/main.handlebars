@@ -56,7 +56,6 @@
     <main class="container mt-5">
       <!-- Render the pages inside layout -->
       {{{body}}}
-      <div class="color-picker"></div>
     </main>
 
     <!-- Render script for logged in users only -->
@@ -64,7 +63,8 @@
       <script src="/js/logout.js"></script>
     {{/if}}
     <div class="container pickr-container">
-      <button class="color-picker">Pick your background color here</button>
+      <div class="color-picker"></div>
+      <p>Pick your own Background Color by clicking on the white square!</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
