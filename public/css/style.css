@@ -5,3 +5,10 @@ body {
 nav {
   background-color: rgb(114, 85, 85);
 }
+
+.activityCard {
+  border: 1px solid grey;
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+}
