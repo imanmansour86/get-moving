@@ -87,20 +87,11 @@ router.get("/activity", withAuth, async (req, res) => {
     const activityData = await Activity.findAll({
       attributes: { exclude: ["password"] },
 
-      include: [
-        {
-          model: User,
-          through: {
-            Attendance,
-            where: {
-              user_id: {
-                [Op.eq]: req.session.user_id,
-              },
-            },
-          },
-          as: "activity_attendances",
+      where: {
+        user_id: {
+          [Op.eq]: req.session.user_id,
         },
-      ],
+      },
     });
 
     // Serialize data so the template can read it
