@@ -1,4 +1,3 @@
-//delete a  blog
 const attendlButtonHandler = async (event) => {
   console.log("attend");
   if (event.target.hasAttribute("data-id")) {
@@ -19,12 +18,6 @@ const attendlButtonHandler = async (event) => {
 };
 
 var elements = document.querySelectorAll(".attend");
-console.log("all delete buttons", elements);
-// buttons.addEventListener("click", attendlButtonHandler);
-
-// document
-//   .getElementById("attend")
-//   .addEventListener("click", attendlButtonHandler);
 
 Array.from(elements).forEach(function (element) {
   element.addEventListener("click", attendlButtonHandler);

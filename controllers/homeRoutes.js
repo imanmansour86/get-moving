@@ -20,10 +20,22 @@ router.get("/", async (req, res) => {
       activity.get({ plain: true })
     );
 
+    //find if user is in the attendance list
+    activities.forEach((activity) => {
+      if (
+        //if we didn't find the user in attendance list
+        !activity.activity_attendances.find(
+          (a) => a.attendance.user_id === req.session.user_id
+        )
+      ) {
+        //assign a notAttended to true
+        activity.notAttended = true;
+      }
+    });
     // Pass serialized data and session flag into template
     res.render("homepage", {
       activities,
-      logged_in: req.session.logged_in,
+      logged_in: req.session.user_id,
     });
   } catch (err) {
     console.log(err);
@@ -105,7 +117,7 @@ router.get("/activity", withAuth, async (req, res) => {
     res.render("activity", {
       activities,
       user,
-      logged_in: req.session.logged_in,
+      logged_in: req.session.user_id,
     });
   } catch (err) {
     console.error(err);
