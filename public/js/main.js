@@ -44,8 +44,6 @@ const pickr = Pickr.create({
 });
 
 pickr.on('change', (color, source, instance) => {
-  console.log(color.toRGBA().toString(3));
   const rgbaColor = color.toRGBA().toString(3);
-  console.log(rgbaColor);
   document.querySelector('body').style.background = rgbaColor;
 });
