@@ -10,23 +10,24 @@
         <h3>Upcoming Activities:</h3>
 
         {{#each activities as |activity|}}
+          <div class="activityCard">
+            <h4>{{activity.title}}</h4>
+            <h5> {{activity.activity_date}}</h5>
+            <p> {{activity.description}} </p>
+            <p> {{activity.location}} </p>
+            <p>
+              People Coming:
+              {{#each activity.activity_attendances as |attendance|}}
 
-          <h4>{{activity.title}}</h4>
-          <h5> {{activity.activity_date}}</h5>
-          <p> {{activity.description}} </p>
-          <p> {{activity.location}} </p>
-          <p>
-            People Coming:
-            {{#each activity.activity_attendances as |attendance|}}
-
-              {{attendance.name}}
-            {{/each}}</p>
-          <button
-            id="delete"
-            class="btn btn-sm btn-danger"
-            data-id="{{activity.id}}"
-          >DELETE</button><br>
-          <br>
+                {{attendance.name}}
+              {{/each}}</p>
+            <button
+              id="delete"
+              class="btn btn-sm btn-danger"
+              data-id="{{activity.id}}"
+            >DELETE</button><br>
+            <br>
+          </div>
         {{/each}}
       </div>
     {{else}}
