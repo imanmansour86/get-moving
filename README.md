@@ -6,7 +6,7 @@
 
 # Get-moving
 
-This app is a social exercise activity app, where users can view other activities added by people and register to these events. The app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, npm bcrypt package to hash passwords and the express-session npm package for authentication.
+This app is a social exercise activity app, where users can view other activities added by people and register to these events. The app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, npm bcrypt package to hash passwords and the express-session npm package for authentication. It also uses Simonwep/pickr. 
 
 ## Deployed Link
 
@@ -16,7 +16,7 @@ This app is a social exercise activity app, where users can view other activitie
 
 ## Table of Contents
 
-- [Get-moving](#get-moving)
+  - [Get-moving](#get-moving)
   - [Deployed Link](#deployed-link)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
@@ -41,7 +41,7 @@ This app is a social exercise activity app, where users can view other activitie
 - From terminal: navigate to db folder in the app's directoty and run:
 
   ```md
-  $ mysql -uroot - p
+  $ mysql -u root - p
   ```
 
 - Run the schema file:
@@ -90,7 +90,7 @@ This app is a social exercise activity app, where users can view other activitie
 
 ## Features
 
-When the user first opens the page, a list of activites appear on the page. When click on a single activity, the user is prompted to either sign up or login. After login, the user can see his created activities by creating the Activity tab in the nav bar. The user can also delete activities from his Activity page, or attend an activity on homepage. The homepage shows people signed up for each event, when the users clicks on the button to attend, his name is added to the people coming list.
+When the user first opens the page, a list of activites appear on the page. When click on a single activity, the user is prompted to either sign up or login. After login, the user can see his created activities by creating the Activity tab in the nav bar. The user can also delete activities from his Activity page, or attend an activity on homepage. The homepage shows people signed up for each event, when the users clicks on the button to attend, his name is added to the people coming list. This app also has a fun color changing feature at the bottom of the page. You can click on the white and a color changer pops up. You can then use the color changer to change the background color of the site. 
 
 ## Built With
 
@@ -103,6 +103,7 @@ When the user first opens the page, a list of activites appear on the page. When
 - [MySQL2](https://www.npmjs.com/package/mysql2)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
+- [Simonwep/pickr](https://github.com/Simonwep/pickr)
 
 ## Resources Used
 

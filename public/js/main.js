@@ -5,10 +5,10 @@ const links = document.querySelectorAll('nav a').forEach(links => {
   }
 });
 
-// Simple example, see optional options for more configuration.
+// Pickr app
 const pickr = Pickr.create({
   el: '.color-picker',
-  theme: 'classic', // or 'monolith', or 'nano'
+  theme: 'classic', // which colors to start with
   default: '#ffffff',
   swatches: [
       'rgba(244, 67, 54, 1)',
