@@ -12,17 +12,15 @@ This app is a social exercise activity app, where users can view other activitie
 
 - [Deployed](https://pacific-wildwood-76799.herokuapp.com/)
 
-## Description
-
 ## Table of Contents
 
   - [Get-moving](#get-moving)
   - [Deployed Link](#deployed-link)
-  - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Features](#features)
+  - [Modals](#modals)
   - [Built With](#built-with)
   - [Resources Used](#resources-used)
   - [Author](#author)
@@ -59,7 +57,7 @@ This app is a social exercise activity app, where users can view other activitie
 - To invoke the app from terminal, run:
 
   ```md
-  $ node server.js
+  $ npm start
   ```
 
 ## Usage
@@ -90,7 +88,17 @@ This app is a social exercise activity app, where users can view other activitie
 
 ## Features
 
+
 When the user first opens the page, a list of activites appear on the page. When click on a single activity, the user is prompted to either sign up or login. After login, the user can see his created activities by creating the Activity tab in the nav bar. The user can also delete activities from his Activity page, or attend an activity on homepage. The homepage shows people signed up for each event, when the users clicks on the button to attend, his name is added to the people coming list. This app also has a fun color changing feature at the bottom of the page. You can click on the white and a color changer pops up. You can then use the color changer to change the background color of the site. 
+=======
+When the user first opens the page, a list of activites appear on the page. When click on a single activity, the user is prompted to either sign up or login. After login, the user can see his created activities by creating the Activity tab in the nav bar. The user can also delete activities from his Activity page, or attend an activity on homepage. The homepage shows people signed up for each event, when the users clicks on the button to attend, his name is added to the people coming list
+
+## Modals
+
+Our app has many to many relationship between user and activity models, this is done through an assosicstion table that has user_id and activity_id. Users can attend many activities and activities belong to many users. There is a one to many relationship as well between user and activity, since the user can create many activities. Screenshot below shows our model's structure
+
+![Model](/public/images/models.png)
+
 
 ## Built With
 
