@@ -90,7 +90,7 @@ This app is a social exercise activity app, where users can view other activitie
 
 ## Features
 
-When the user first opens the page, a list of activites appear on the page. When click on a single activity, the user is prompted to either sign up or login. After login, the user can see his created activities by creating the Activity tab in the nav bar. The user can also delete activities from his Activity page, or attend an activity on homepage.
+When the user first opens the page, a list of activites appear on the page. When click on a single activity, the user is prompted to either sign up or login. After login, the user can see his created activities by creating the Activity tab in the nav bar. The user can also delete activities from his Activity page, or attend an activity on homepage. The homepage shows people signed up for each event, when the users clicks on the button to attend, his name is added to the people coming list.
 
 ## Built With
 
